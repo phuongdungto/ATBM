@@ -6,10 +6,8 @@ import { User } from "../users/user.entity";
 import { Post } from "../posts/post.entity";
 import { Image } from "../images/image.entity";
 import { Comment } from "../comments/comment.entity";
-import { init1680707806456 } from "../migrations/1680707806456-init";
+import { init1680718294116 } from "../migrations/1680718294116-init";
 dotenv.config();
-
-console.log(path.resolve('src/**/*.entity.ts'));
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -22,7 +20,7 @@ export const AppDataSource = new DataSource({
     //entities: [path.resolve('src/**/*.entity.ts')],
     subscribers: [],
     migrations: [
-        init1680707806456
+        init1680718294116
     ],
     //migrations: [path.join(__dirname, "../migrations/*{.js,.ts}")],
     namingStrategy: new SnakeNamingStrategy(),

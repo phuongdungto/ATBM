@@ -34,7 +34,7 @@ export class User {
         name: 'role',
         type: 'enum',
         enum: Roles,
-        default: Roles.MENBER,
+        default: Roles.USER,
         nullable: false
     })
     role: Roles;

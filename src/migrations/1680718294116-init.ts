@@ -1,7 +1,7 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class init1680707806456 implements MigrationInterface {
-    name = 'init1680707806456'
+export class init1680718294116 implements MigrationInterface {
+    name = 'init1680718294116'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
@@ -44,7 +44,7 @@ export class init1680707806456 implements MigrationInterface {
                 \`fullname\` varchar(255) NOT NULL,
                 \`email\` varchar(255) NOT NULL,
                 \`password\` varchar(255) NOT NULL,
-                \`role\` enum ('admin', 'member', 'manager') NOT NULL DEFAULT 'member',
+                \`role\` enum ('admin', 'user') NOT NULL DEFAULT 'user',
                 \`created_at\` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
                 \`updated_at\` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
                 \`deleted_at\` datetime(6) NULL,
