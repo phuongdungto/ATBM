@@ -1,5 +1,5 @@
 
-import * as multer from 'multer';
+import multer from 'multer';
 import * as path from 'path';
 import { BadRequest } from 'http-errors';
 
