@@ -21,7 +21,7 @@ export class Post {
     @PrimaryGeneratedColumn({ type: 'bigint' })
     id: number;
 
-    @Column({ name: 'content' })
+    @Column({ name: 'content' ,type:'text'})
     content: string;
 
     @CreateDateColumn()

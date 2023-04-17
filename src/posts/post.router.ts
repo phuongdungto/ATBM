@@ -1,15 +1,17 @@
 import * as express from 'express';
 import { Roles } from '../core/enum';
 import {
-    createPost, getPosts, getPost
+    createPost, getPosts, getPost, updatePost, deletePost
 } from './post.controller';
 import { authorization } from '../core/middleware/auth.middleware';
 import { productImageUpload } from '../core/static/image.static';
 
 const router = express.Router();
 
-router.post('/', productImageUpload.array('images', 2), authorization(), createPost);
+router.post('/', productImageUpload.array('images'), authorization(Roles.USER, Roles.ADMIN), createPost);
 router.get('/', getPosts);
-router.get('/:id', getPost)
+router.get('/:id', getPost);
+router.put('/:id', productImageUpload.array('images'), authorization(Roles.USER, Roles.ADMIN), updatePost);
+router.delete('/:id', authorization(Roles.USER, Roles.ADMIN), deletePost)
 
 export default router;
