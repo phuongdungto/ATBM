@@ -17,10 +17,13 @@ export async function createComment(body: createCommentDTO) {
     return comment;
 }
 
-export async function getComments(body) {
+export async function getComments(body: any) {
     const query = Pagination(Comment, body);
     const [list, count] = await commentRepo.findAndCount({
-        ...query
+        ...query,
+        relations: {
+            user: true
+        }
     })
     return { totalPage: Math.ceil(count / body.limit), comments: list }
 }

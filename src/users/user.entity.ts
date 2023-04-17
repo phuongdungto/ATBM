@@ -39,6 +39,9 @@ export class User {
     })
     role: Roles;
 
+    @Column({ name: 'image', default: 'default-avatar.jpg' })
+    image: string;
+
     @CreateDateColumn()
     createdAt: Date;
 
