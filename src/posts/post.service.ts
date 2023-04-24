@@ -33,7 +33,13 @@ export async function createPost(createPost: any, user: any) {
             .values(gets)
             .execute()
     }
-    return result;
+    return await postRepo.findOne({
+        where: { id: result.id },
+        relations: {
+            user: true,
+            images: true
+        }
+    });
 }
 
 export async function getPosts(req: any) {
